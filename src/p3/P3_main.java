@@ -10,16 +10,24 @@ public class P3_main {
 	}
 
 	public static int methode(int[] a) {
-		int max = -1;
-		int k = a.length - 1;
-		for (int i = 0; i < k; i++) {
-			for (int j = 0; j < k; j++) {
-				if (a[j] > a[i]) {
-					max = a[j];
+		int max = a[0];
+		int zweitMax = -1;
+		if (a.length >= 2) {
+			for (int i =1; i < a.length; i++) {
+				if (Math.abs(a[i]) != max) {
+					zweitMax = a[i];
 				}
 			}
 		}
-		return max;
+		for (int i = 0; i < a.length; i++) {
+			for (int j = i; j < a.length; j++) {
+				if (Math.abs(a[j]) > Math.abs(a[i])) {
+					max = a[j];
+					zweitMax = a[i];
+				}
+			}
+		}
+		return zweitMax;
 	}
 
 }
